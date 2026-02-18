@@ -1,0 +1,1 @@
+code for problems of topic 14 goes here
