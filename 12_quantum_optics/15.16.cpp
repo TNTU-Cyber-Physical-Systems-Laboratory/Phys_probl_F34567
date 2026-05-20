@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+#include <locale>
+
+using namespace std;
+
+int main() {
+    setlocale(LC_CTYPE, "ukr");
+
+    // Константи
+    double h = 6.626e-34;   // Стала Планка
+    double q = 1.602e-19; // Заряд електрона
+
+    // Змінні
+    double U_z, v_0;  
+
+    std::cout << ":::Визначення частоти світла і роботи виходу:::" << std::endl;
+
+    // Введення даних з клавіатури
+    std::cout << "Введіть затримуючий потенціал (В): ";
+    std::cin >> U_z;
+
+    std::cout << "Введіть граничну частоту ( с^-1 Гц): ";
+    std::cin >> v_0;
+
+    // 1. Обчислення роботи виходу, Дж
+    double A = h * v_0;
+
+    // 2. Обчислення максимальної кінетичної енергії електронів, Дж
+    double E_k_max = q * U_z;
+
+    // 3. Обчислення частоти світла, Гц
+     double v = (A + E_k_max) / h;
+
+    std::cout << "\n:::Результат розрахунків:::" << std::endl;
+    std::cout << "Робота виходу електрона : " << A << " Дж" << std::endl;
+    std::cout << "Частота світла : " << v << " с^-1 (Гц)" << std::endl;
+
+    return 0;
+}
