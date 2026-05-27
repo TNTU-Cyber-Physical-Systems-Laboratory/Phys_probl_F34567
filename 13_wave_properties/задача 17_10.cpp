@@ -1,9 +1,6 @@
 #include <iostream>
-#include <iomanip>
 #include <cmath>
-#include <locale>
-
-using namespace std;
+#include <clocale>
 
 int main() {
     setlocale(LC_CTYPE, "ukr");
