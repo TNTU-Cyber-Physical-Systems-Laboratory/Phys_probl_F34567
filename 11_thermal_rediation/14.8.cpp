@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <iomanip>
-#include <locale>
+#include <clocale>
 
 using namespace std;
 
@@ -11,9 +10,11 @@ int main() {
     //Константи
      double sigma = 5.67e-8;
      double R= 1.496e11;
+     const double S = 1.0; 
+     const double t = 1.0;
 
     // Змінні
-    double T, r_sun,  R_dist, S, t;
+    double T, r_sun;
     
     std::cout << "~~~Визначення сонячної сталої~~~" << std::endl;
 
@@ -22,12 +23,6 @@ int main() {
 
     std::cout << "Введіть радіус Сонця (м): ";
     std::cin >> r_sun;
-
-    std::cout << "Введіть площу поверхні (м^2): ";
-    std::cin >> S;
-
-    std::cout << "Введіть час t (с): ";
-    std::cin >> t;
 
     // Розрахунок енергетичної світності Сонця 
     double W = sigma * std::pow(T, 4);
