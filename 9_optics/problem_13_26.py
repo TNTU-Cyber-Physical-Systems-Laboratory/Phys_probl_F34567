@@ -1,11 +1,15 @@
 ﻿import math
 import sys
+
 sys.stdout.reconfigure(encoding='utf-8')
 
-
 slits_per_mm = float(input("Enter slits per mm: "))
-m = int(input("Diffraction order m: "))
+m = int(input("Diffraction order m (non-zero integer): "))
 total_angle_deg = float(input("Total angle (deg): "))
+
+if m == 0:
+    print("Error: diffraction order m cannot be 0.")
+    sys.exit(1)
 
 d = 1e-3 / slits_per_mm
 theta_deg = total_angle_deg / 2

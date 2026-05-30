@@ -1,20 +1,24 @@
 ﻿import math
 import sys
+
 sys.stdout.reconfigure(encoding='utf-8')
 
 hbar = 1.0546e-34
 h = 6.626e-34
 e = 1.6e-19
 m_e = 9.11e-31
-c = 3e8
-k_B = 1.38e-23
 
 E = float(input("E (eV): "))
 U0 = float(input("U0 (eV): "))
 
-kappa = math.sqrt(2*m_e*(U0 - E)*e) / hbar
+if U0 <= E:
+    print("No tunneling barrier: particle is not in classically forbidden region.")
+    sys.exit(0)
 
-rhs = 2 * math.sqrt(E*(U0 - E)) / U0
+# decay constant in barrier
+kappa = math.sqrt(2 * m_e * (U0 - E) * e) / hbar
+
+rhs = 2 * math.sqrt(E * (U0 - E)) / U0
 
 kL = math.asinh(rhs)
 L = kL / kappa

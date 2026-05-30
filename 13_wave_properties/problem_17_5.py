@@ -14,5 +14,8 @@ print("λ = h / sqrt(2mE)\n")
 for E_eV in energies:
     E = E_eV * e
     lam = h / math.sqrt(2 * m_p * E)
-    label = "eV" if E_eV < 1e3 else "keV"
-    print(f"  E = {E_eV:.0f} {label}: λ = {lam:.4e} m ({lam*1e12:.2f} pm)")
+
+    value = E_eV/1000 if E_eV >= 1000 else E_eV
+    unit = "keV" if E_eV >= 1000 else "eV"
+
+    print(f"  E = {value:.0f} {unit}: λ = {lam:.4e} m ({lam*1e12:.2f} pm)")
