@@ -10,6 +10,8 @@ m_e = 9.11e-31
 
 E = float(input("E (eV): "))
 U0 = float(input("U0 (eV): "))
+if U0 <= E:
+    raise ValueError("U0 must be greater than E for this tunnelling formula")
 
 if U0 <= E:
     print("No tunneling barrier: particle is not in classically forbidden region.")
