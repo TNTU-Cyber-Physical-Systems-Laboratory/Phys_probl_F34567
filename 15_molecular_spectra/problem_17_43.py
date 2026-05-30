@@ -1,12 +1,16 @@
-﻿import math
+﻿import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-a0 = 5.29e-11
-v1 = 2.19e6
-e_ = 1.6e-19
-T1 = 2 * math.pi * a0 / v1
-I = e_ / T1
+import math
 
-print("Problem 17.43 вЂ“ Equivalent current on first Bohr orbit")
-print(f"  a0 = {a0:.3e} m,  v1 = {v1:.3e} m/s")
-print(f"  Period T1 = 2*pi*a0/v1 = {T1:.4e} s")
-print(f"  Current I = e/T1 = {I:.4e} A  ({I * 1e3:.3f} mA)")
+print("Problem 17.43\n")
+
+a0 = float(input("Bohr radius (m): "))
+v1 = float(input("Electron velocity (m/s): "))
+e = 1.6e-19
+
+T = 2 * math.pi * a0 / v1
+I = e / T
+
+print(f"T = {T:.4e} s")
+print(f"I = {I:.4e} A")

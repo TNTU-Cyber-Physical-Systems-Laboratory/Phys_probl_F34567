@@ -1,26 +1,27 @@
-﻿R_H = 1.097e7
-lam_min_vis = 380e-9
-lam_max_vis = 760e-9
+﻿import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-print("Problem 16.6 вЂ“ Balmer series lines in the visible spectrum")
-print(f"  Visible range: {lam_min_vis * 1e9:.0f}вЂ“{lam_max_vis * 1e9:.0f} nm")
+R_H = 1.097e7
+lam_min = 380e-9
+lam_max = 760e-9
 
-print("  n     lambda (nm)   visible?")
+print("Problem 16.6\n")
+
+n_start = int(input("Start n (e.g. 3): "))
+n_end = int(input("End n (e.g. 20): "))
 
 count = 0
 
-for n in range(3, 20):
-    inv_lam = R_H * (1 / 4 - 1 / n**2)
-    lam = 1 / inv_lam
-    visible = lam_min_vis <= lam <= lam_max_vis
+for n in range(n_start, n_end):
+    lam = 1 / (R_H * (1/4 - 1/n**2))
+    visible = lam_min <= lam <= lam_max
 
     if visible:
         count += 1
 
-    mark = " <-- visible" if visible else ""
-    print(f"  n={n}:  {lam * 1e9:.1f} nm{mark}")
+    print(f"n={n}: {lam*1e9:.1f} nm {'← visible' if visible else ''}")
 
-    if lam < lam_min_vis:
+    if lam < lam_min:
         break
 
-print(f"  Number of Balmer lines in visible range: {count}")
+print(f"\nVisible lines: {count}")

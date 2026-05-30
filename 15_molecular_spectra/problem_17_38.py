@@ -1,18 +1,14 @@
-﻿subshells = {
-    "s": 0,
-    "p": 1,
-    "d": 2,
-}
+﻿import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-print("Problem 17.38")
+print("Problem 17.38\n")
 
-for name, l in subshells.items():
-    print(f"  {name}-subshell  (l = {l}):")
+l = int(input("Enter l (0=s,1=p,2=d): "))
 
-    for ml in range(-l, l + 1):
-        for ms_num in [1, -1]:
-            ms = ms_num / 2
-            print(f"    l={l}, ml={ml:+d}, ms={ms:+.1f}")
-            
-    print(f"    Total states: {2 * (2 * l + 1)}")
-    print()
+ml_range = range(-l, l + 1)
+
+for ml in ml_range:
+    for ms in [0.5, -0.5]:
+        print(f"l={l}, ml={ml:+d}, ms={ms:+.1f}")
+
+print(f"\nTotal states: {2 * (2*l + 1)}")

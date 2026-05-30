@@ -1,16 +1,20 @@
 ﻿import math
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-print("Problem *17.16")
+print("Problem 17.16")
 print()
-print("  psi(r) = A * exp(-r^2 / (2*a^2))")
+
+print("ψ(r) = A exp(-r² / (2a²))")
 print()
-print("  1) Normalisation:")
-print("     integral 4*pi*r^2*|psi|^2 dr = 1")
-print("     4*pi*A^2 * (sqrt(pi)*a^3 / 4) = 1")
-print("     A^2 = 1 / (pi^(3/2) * a^3)")
-print("     A   = 1 / (pi^(3/4) * a^(3/2))")
-print(f"     (Numerically: A = pi^(-3/4) * a^(-3/2),  pi^(3/4) = {math.pi**(3/4):.4f})")
+
+print("Normalization:")
+print("∫ 4πr²|ψ|² dr = 1")
+print("A = 1 / (π^(3/4) a^(3/2))")
 print()
-print("  2) Radial probability density P(r) в€ќ r^2 * exp(-r^2/a^2)")
-print("     dP/dr = 0  =>  r_mp = a")
-print("     Most probable distance = a")
+
+print(f"π^(3/4) = {math.pi**(3/4):.4f}")
+
+print()
+print("Most probable radius:")
+print("r_mp = a")
