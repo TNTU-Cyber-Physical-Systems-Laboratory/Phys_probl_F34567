@@ -12,7 +12,7 @@ n_end = int(input("End n (e.g. 20): "))
 
 count = 0
 
-for n in range(n_start, n_end):
+for n in range(n_start, n_end + 1):
     lam = 1 / (R_H * (1/4 - 1/n**2))
     visible = lam_min <= lam <= lam_max
 
