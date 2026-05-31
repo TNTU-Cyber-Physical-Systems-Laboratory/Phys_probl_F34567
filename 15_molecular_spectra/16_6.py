@@ -15,6 +15,8 @@ n_end = int(input("Enter n end: "))
 
 if n_start < 3:
     n_start = 3
+if n_end < n_start:
+    raise ValueError("End n must be greater than or equal to start n.")
 
 count = 0
 
