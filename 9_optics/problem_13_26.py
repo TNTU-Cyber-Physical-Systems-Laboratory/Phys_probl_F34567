@@ -10,6 +10,7 @@ total_angle_deg = float(input("Total angle (deg): "))
 if m == 0:
     print("Error: diffraction order m cannot be 0.")
     sys.exit(1)
+m = abs(m)
 
 d = 1e-3 / slits_per_mm
 theta_deg = total_angle_deg / 2
