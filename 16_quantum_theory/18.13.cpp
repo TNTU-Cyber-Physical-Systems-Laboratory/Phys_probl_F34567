@@ -3,8 +3,6 @@
 #include <iomanip>
 #include <locale> 
 
-using namespace std;
-
 int main() {
     setlocale(LC_CTYPE, "ukr");
 
@@ -12,18 +10,18 @@ int main() {
     double h = 6.626e-34;      // Стала Планка 
     double Me = 9.11e-31;     // Маса електрона 
     double Na = 6.022e23;     // Число Авогадро 
-    double Pi = 3.14;
     double eV = 1.602e-19;    // 1 електрон-вольт 
+    double Pi = M_PI;
 
     // Змінні для вводу
     double rho, M;
     
     std::cout << "~~Знаходження макс.енергії електрона, середньої енергії електрона і тиску електронного газу~~\n";
 
-    cout << "Введіть густину металу (кг/м^3): ";
-    cin >> rho;
-    cout << "Введіть молярну масу (кг/моль): ";
-    cin >> M;
+    std::cout << "Введіть густину металу (кг/м^3): ";
+    std::cin >> rho;
+    std::cout << "Введіть молярну масу (кг/моль): ";
+    std::cin >> M;
 
     // 1. Розрахунок концентрації електронів n
     double n = (rho * Na) / M;
@@ -40,17 +38,17 @@ int main() {
     double P = (2.0 / 5.0) * n * Ef_joules;
 
     // Вивід результатів
-    cout << fixed << setprecision(4);
-    cout << "\n~~ Результати розрахунків ~~" << endl;
-    cout << "1) Максимальна енергія (Енергія Фермі):" << endl;
-    cout << "   " << Ef_eV << " еВ" << endl;
+    std::cout << std::fixed << std::setprecision(4);
+    std::cout << "\n~~ Результати розрахунків ~~" << std::endl;
+    std::cout << "1) Максимальна енергія (Енергія Фермі):" << std::endl;
+    std::cout << "   " << Ef_eV << " еВ" << std::endl;
     
-    cout << "2) Середня енергія електрона:" << endl;
-    cout << "   " << E_avg_eV << " еВ" << endl;
+    std::cout << "2) Середня енергія електрона:" << std::endl;
+    std::cout << "   " << E_avg_eV << " еВ" << std::endl;
 
-    cout << "3) Тиск електронного газу:" << endl;
-    cout << "   " << P << " Па" << endl;
-    cout << "\n~~ Задачу вирішено! :3 ~~" << endl;
+    std::cout << "3) Тиск електронного газу:" << std::endl;
+    std::cout << "   " << P << " Па" << std::endl;
+    std::cout << "\n~~ Задачу вирішено! :3 ~~" << std::endl;
 
     return 0;
 }
