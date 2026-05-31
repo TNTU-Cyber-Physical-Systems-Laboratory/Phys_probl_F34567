@@ -11,7 +11,7 @@ int main() {
 
     double e= 1.602176634e-19;
 	double m= 9.1093822e-31;
-	double h_bar= 6.62607015e-34;
+	double h_bar= 1.0545718e-34;
 	double epsilon_0= 8.854187817e-12;
 
     std::cout << "~~Розрахунок еквівалентного струму електрона~~\n";
