@@ -1,5 +1,5 @@
 import sys
-sys.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8')
 
 R_H = 1.097e7
 
