@@ -32,6 +32,10 @@ for j in j_values:
 
 n_min = int(input("\nEnter minimum n: "))
 n_max = int(input("Enter maximum n: "))
+if n_min <= l:
+    n_min = l + 1
+if n_max < n_min:
+    raise ValueError("Maximum n must be at least the first allowed n (n > l).")
 
 print("\nStates:")
 for n in range(n_min, n_max + 1):
