@@ -10,9 +10,15 @@ print("Problem 16.6\n")
 n_start = int(input("Start n (e.g. 3): "))
 n_end = int(input("End n (e.g. 20): "))
 
+if n_start < 3:
+    n_start = 3
+if n_end < n_start:
+    raise ValueError("End n must be greater than or equal to start n.")
+
 count = 0
 
-for n in range(n_start, n_end + 1):
+for n in range(n_start, n_end + 1):
+
     lam = 1 / (R_H * (1/4 - 1/n**2))
     visible = lam_min <= lam <= lam_max
 
