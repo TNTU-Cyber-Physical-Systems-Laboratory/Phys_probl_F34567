@@ -6,7 +6,8 @@ h = 6.626e-34
 m_p = 1.67e-27
 e = 1.6e-19
 
-energies = [1.0, 1e3]  # eV, keV
+energies_input = input("Enter proton kinetic energies in eV, separated by spaces (e.g. 1 1000): ")
+energies = [float(value) for value in energies_input.split()]
 
 print("Problem 17.5")
 print("λ = h / sqrt(2mE)\n")
