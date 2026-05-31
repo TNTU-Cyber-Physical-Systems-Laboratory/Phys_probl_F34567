@@ -4,6 +4,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 print("Problem 17.38\n")
 
 l = int(input("Enter l (0=s,1=p,2=d): "))
+if l < 0:
+    raise ValueError("Orbital quantum number l must be non-negative.")
 
 ml_range = range(-l, l + 1)
 
