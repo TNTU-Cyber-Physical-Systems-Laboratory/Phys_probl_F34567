@@ -1,18 +1,23 @@
 ﻿import math
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 sigma = 5.67e-8
-U = 127
-I = 0.31
-d = 0.3e-3
-L = 5e-2
-epsilon = 0.31
-P_elec = U * I
+
+U = float(input("U (V): "))
+I = float(input("I (A): "))
+d = float(input("d (m): "))
+L = float(input("L (m): "))
+epsilon = float(input("epsilon: "))
+
+P = U * I
 A = math.pi * d * L
-T = (P_elec / (epsilon * sigma * A)) ** 0.25
+
+T = (P / (epsilon * sigma * A)) ** 0.25
 
 print("Problem 14.6")
-print(f"  U = {U} V,  I = {I} A  =>  P = {P_elec:.2f} W")
-print(f"  Filament: d = {d * 1e3:.1f} mm,  L = {L * 1e2:.0f} cm")
-print(f"  Surface area A = pi*d*L = {A:.4e} mВІ")
-print(f"  Emissivity ratio epsilon = {epsilon}")
-print(f"  T = (P / (epsilon * sigma * A))^(1/4) = {T:.0f} K")
+print(f"  P = {P:.2f} W")
+print(f"  d = {d*1e3:.3f} mm, L = {L*1e2:.2f} cm")
+print(f"  A = pi*d*L = {A:.4e} m^2")
+print(f"  epsilon = {epsilon:.3f}")
+print(f"  T = {T:.0f} K")

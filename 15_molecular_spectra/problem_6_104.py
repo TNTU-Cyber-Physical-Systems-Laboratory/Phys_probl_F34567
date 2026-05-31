@@ -1,23 +1,43 @@
-﻿print("Problem *6.104")
-print()
-print("  l = 1  (p-subshell),  s = 1/2")
-print("  Possible principal quantum numbers: n = 2, 3, 4, ...")
-print()
-print("  Total angular momentum j = |l В± s|:")
+﻿import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
-j_values = [abs(1 - 0.5), abs(1 + 0.5)]
+print("Problem 6.104\n")
 
-for j in sorted(j_values):
-    print(f"    j = {j}")
+l = int(input("Enter l (e.g. 1 for p-orbital): "))
+s = 0.5
 
-print("  Spectroscopic term notation ^{2S+1}L_J  (S=1/2, 2S+1=2, L=P):")
+# Спектроскопічні літери
+spectroscopic_letters = {
+    0: "S",
+    1: "P",
+    2: "D",
+    3: "F",
+    4: "G",
+    5: "H",
+    6: "I",
+    7: "K"
+}
 
-for j in sorted(j_values):
-    print(f"    ^2 P_{{j={j}}}")
+letter = spectroscopic_letters.get(l, "?")
 
+j_values = sorted({abs(l - s), l + s})
 
-print("  States for the lowest few n values:")
+print("\nTotal angular momentum j values:")
+for j in j_values:
+    print(f"  j = {j}")
 
-for n in range(2, 6):
-    for j in sorted(j_values):
-        print(f"    n={n}, l=1, j={j}  ->  {n}P_{j}")
+print("\nSpectroscopic notation:")
+for j in j_values:
+    print(f"  ^2{letter}_(j={j})")
+
+n_min = int(input("\nEnter minimum n: "))
+n_max = int(input("Enter maximum n: "))
+if n_min <= l:
+    n_min = l + 1
+if n_max < n_min:
+    raise ValueError("Maximum n must be at least the first allowed n (n > l).")
+
+print("\nStates:")
+for n in range(n_min, n_max + 1):
+    for j in j_values:
+        print(f"  n={n}, l={l}, j={j} -> {n}{letter}_{j}")
